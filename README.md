@@ -12,10 +12,10 @@ It use **Tor** for to secure the communications between the differents clients.
 
 Steps :
 
-* -> Connection and Registration
-* -> Choose your salon and connect into it
-* -> Write or speak with the IA
-* -> Use the tools put in place for you
-* -> Have fun !
+* Connection and Registration
+* Choose your salon and connect into it
+* Write or speak with the IA
+* Use the tools put in place for you
+* Have fun !
 
 
