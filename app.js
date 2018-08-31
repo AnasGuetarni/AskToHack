@@ -33,6 +33,7 @@ app.use(session({
 console.log("\nLoading custom modules:".blue);
 var db = require('./lib/db');
 var types = require('./lib/types/');
+var router = require('./lib/router')(app);
 
 http.listen(global.PORT,function(){
     console.log(('\n' + "=== App Started on PORT " + global.PORT + " at " + dateNow + " ===" + '\n').green);
