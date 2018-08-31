@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('./partials/head'); %>
+    </head>
+
+    <body id="login">
+        <!--<img src="img/logo_acad.png" alt="Logo" class="logo">-->
+        <form action='/login' method='POST'>
+            <div class="group">
+                <input class="textField" name="login" id="identifiant" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Identifiant de connexion</label>
+            </div>
+
+            <div class="group">
+                <input class="textField" name="mdp" type="password" id="mdp" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Mot de passe</label>
+            </div>
+
+            <div class="connexion">
+                <input type="submit" value="Connexion" />
+            </div>
+        </form>
+    </body>
+</html>
+
+<script>
+
+
+
+</script>

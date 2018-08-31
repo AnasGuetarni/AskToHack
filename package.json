@@ -1,0 +1,38 @@
+{
+  "name": "asktohack",
+  "version": "1.0.0",
+  "description": "Chatbot using exploitDB RSS feed with a speech IA",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnasGuetarni/AskToHack.git"
+  },
+  "keywords": [
+    "hacking",
+    "exploit",
+    "msf",
+    "chatbot",
+    "ia"
+  ],
+  "author": "Anas Guetarni & Melvin Gay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnasGuetarni/AskToHack/issues"
+  },
+  "homepage": "https://github.com/AnasGuetarni/AskToHack#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "color": "^3.0.0",
+    "colors": "^1.3.2",
+    "express-session": "^1.15.6",
+    "helmet": "^3.13.0",
+    "http": "0.0.0",
+    "mongodb": "^3.1.4",
+    "mongoose": "^5.2.12",
+    "mysql": "^2.16.0",
+    "rss-parser": "^3.4.3"
+  }
+}
