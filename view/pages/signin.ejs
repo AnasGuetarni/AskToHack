@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+      <%- include('./partials/head'); -%>
+      <link rel="stylesheet" href="../../css/custom.css">
+    </head>
+
+    <body id="login">
+      <img src="img/logo.png" alt="Shard" class="shard signin">
+
+      <div class="row mb-2 log">
+        <div class="col-12">
+          <h6 class="text-muted">Sign in</h6>
+          <form action='/signin' method="POST">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-seamless">
+                  <span class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </span>
+                  <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-seamless">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                  <span class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group input-group-seamless">
+                  <input type="submit" class="form-control" id="submit" value="Sign in">
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <!--
+      <div class="grid">
+
+        <img src="img/logo.png" alt="Logo" class="logo">
+        <form action='/login' method='POST' class="form login">
+            <div class="form__field">
+                <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">Username</span></label>
+                <input type="text" name="login" class="form__input" placeholder="Username" id="identifiant" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+            </div>
+
+            <div class="form__field">
+                <label for="login__password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span class="hidden">Password</span></label>
+                <input class="form__input" name="mdp" type="password" placeholder="Password" id="mdp" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Mot de passe</label>
+            </div>
+
+            <div class="form__field">
+                <input type="submit" value="Connexion" />
+            </div>
+        </form>
+
+        <p class="text--center">Not a member? <a href="#">Sign up now</a> <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#arrow-right"></use></svg></p>
+
+      </div>
+    -->
+    </body>
+</html>
+
+<script>
+
+
+</script>
+
+<%- include('./partials/footer'); -%>
