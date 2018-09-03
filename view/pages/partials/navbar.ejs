@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<img src="../img/logo.png" alt="Example Navbar 1" class="mr-2 logo" height="30" href="#">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-7" aria-controls="navbarNavDropdown-7"
+		aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavDropdown-7">
+		<ul class="navbar-nav mr-auto">
+		</ul>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="https://github.com/AnasGuetarni/AskToHack.git">
+					<%- sess.username -%>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<script>
+var sess = <%- JSON.stringify(sess) %>;
+</script>

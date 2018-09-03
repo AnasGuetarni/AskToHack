@@ -25,7 +25,7 @@
   --info: #00b8d8;
   --warning: #ffb400;
   --danger: #c4183c;
-  --light: #e9ecef;
+  --light: #d5d3f2;
   --dark: #212529;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -388,7 +388,7 @@ pre {
 
 .table .thead-light th {
   color: #495057;
-  background-color: #e9ecef;
+  background-color: #d5d3f2;
   border-color: #dee2e6;
 }
 
@@ -804,9 +804,9 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #006fe6;
-  border-color: #006fe6;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 123, 255, 0.25);
+  background-color: #868e96;
+  border-color: #868e96;
+  
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -1001,8 +1001,8 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
 .btn-light {
   color: #212529;
-  border-color: #e9ecef;
-  background-color: #e9ecef;
+  border-color: #d5d3f2;
+  background-color: #d5d3f2;
   box-shadow: none;
 }
 
@@ -1018,8 +1018,8 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 }
 
 .btn-light.disabled, .btn-light:disabled {
-  background-color: #e9ecef;
-  border-color: #e9ecef;
+  background-color: #d5d3f2;
+  border-color: #d5d3f2;
   box-shadow: none;
   cursor: not-allowed;
 }
@@ -1354,14 +1354,14 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 .btn-outline-light {
   background-color: transparent;
   background-image: none;
-  border-color: #e9ecef;
+  border-color: #d5d3f2;
   color: #212529;
 }
 
 .btn-outline-light:hover {
   color: #212529;
-  background-color: #e9ecef;
-  border-color: #e9ecef;
+  background-color: #d5d3f2;
+  border-color: #d5d3f2;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(233, 236, 239, 0.25);
 }
 
@@ -1370,7 +1370,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 }
 
 .btn-outline-light.disabled, .btn-outline-light:disabled {
-  color: #e9ecef;
+  color: #d5d3f2;
   background-color: transparent;
   box-shadow: none;
 }
@@ -1378,8 +1378,8 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 .btn-outline-light:not(:disabled):not(.disabled):active, .btn-outline-light:not(:disabled):not(.disabled).active,
 .show > .btn-outline-light.dropdown-toggle {
   color: #212529;
-  background-color: #e9ecef;
-  border-color: #e9ecef;
+  background-color: #d5d3f2;
+  border-color: #d5d3f2;
 }
 
 .btn-outline-light:not(:disabled):not(.disabled):active:focus, .btn-outline-light:not(:disabled):not(.disabled).active:focus,
@@ -1599,7 +1599,7 @@ i.material-icons {
   height: 0;
   margin: 0.75rem 0;
   overflow: hidden;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid #d5d3f2;
 }
 
 .dropdown-item {
@@ -1882,7 +1882,7 @@ i.material-icons {
 }
 
 .custom-control-input:disabled ~ .custom-control-label::before {
-  background-color: #e9ecef;
+  background-color: #d5d3f2;
 }
 
 .custom-control-label:hover {
@@ -1962,7 +1962,7 @@ i.material-icons {
 }
 
 .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
-  background: #e9ecef;
+  background: #d5d3f2;
   border-color: #becad6;
 }
 
@@ -2007,7 +2007,7 @@ i.material-icons {
 }
 
 .custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
-  background: #e9ecef;
+  background: #d5d3f2;
   border-color: #becad6;
 }
 
@@ -2050,7 +2050,7 @@ i.material-icons {
 
 .custom-select:disabled {
   color: #868e96;
-  background-color: #e9ecef;
+  background-color: #d5d3f2;
 }
 
 .custom-select-sm {
@@ -2131,7 +2131,7 @@ i.material-icons {
   line-height: 1.5;
   color: #495057;
   border-left: 1px solid #becad6;
-  background-color: #e9ecef;
+  background-color: #d5d3f2;
   border-radius: 0 0.375rem 0.375rem 0;
 }
 
@@ -2177,7 +2177,7 @@ i.material-icons {
 }
 
 .custom-toggle .custom-control-input:checked:disabled ~ .custom-control-label::before {
-  background: #e9ecef;
+  background: #d5d3f2;
   border-color: #becad6;
 }
 
@@ -2194,7 +2194,7 @@ i.material-icons {
 }
 
 .custom-toggle .custom-control-input:disabled:active ~ .custom-control-label::before {
-  background-color: #e9ecef;
+  background-color: #d5d3f2;
 }
 
 .custom-toggle .custom-control-input:focus ~ .custom-control-label::before {
@@ -2266,7 +2266,7 @@ i.material-icons {
 }
 
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-  border-color: #e9ecef;
+  border-color: #d5d3f2;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -3335,7 +3335,7 @@ a.badge {
 
 .badge-light {
   color: #212529;
-  background-color: #e9ecef;
+  background-color: #d5d3f2;
 }
 
 .badge-light[href]:hover, .badge-light[href]:focus {
@@ -3346,8 +3346,8 @@ a.badge {
 
 .badge-outline-light {
   background: none;
-  border: 1px solid #e9ecef;
-  color: #e9ecef;
+  border: 1px solid #d5d3f2;
+  color: #d5d3f2;
   color: #212529;
 }
 
@@ -3459,7 +3459,7 @@ a.badge {
 
 .alert-light {
   color: white;
-  background-color: #e9ecef;
+  background-color: #d5d3f2;
   color: #212529;
 }
 
@@ -4434,7 +4434,7 @@ button.list-group-item-dark.active {
 }
 
 .slider-light .noUi-connect {
-  background: #e9ecef;
+  background: #d5d3f2;
 }
 
 .slider-dark .noUi-connect {
@@ -4615,7 +4615,7 @@ button.list-group-item-dark.active {
 }
 
 .datepicker table tr td.range.highlighted.disabled, .datepicker table tr td.range.highlighted.disabled:active {
-  background: #e9ecef;
+  background: #d5d3f2;
   color: #e7e9ea;
 }
 
@@ -4660,7 +4660,7 @@ button.list-group-item-dark.active {
 }
 
 .datepicker table tr td span:hover, .datepicker table tr td span.focused {
-  background: #e9ecef;
+  background: #d5d3f2;
 }
 
 .datepicker table tr td span.disabled, .datepicker table tr td span.disabled:hover {
@@ -4692,7 +4692,7 @@ button.list-group-item-dark.active {
 .datepicker .prev:hover,
 .datepicker .next:hover,
 .datepicker tfoot tr th:hover {
-  background: #e9ecef;
+  background: #d5d3f2;
 }
 
 .datepicker .prev.disabled, .datepicker .next.disabled {
@@ -4831,7 +4831,7 @@ a.bg-danger:hover, a.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #e9ecef !important;
+  background-color: #d5d3f2 !important;
 }
 
 .bg-light.card .card-title,
@@ -4915,7 +4915,7 @@ a.bg-dark:hover, a.bg-dark:focus {
 }
 
 .border-light {
-  border-color: #e9ecef !important;
+  border-color: #d5d3f2 !important;
 }
 
 .border-dark {
@@ -5003,7 +5003,7 @@ a.text-danger:hover, a.text-danger:focus {
 }
 
 .text-light {
-  color: #e9ecef !important;
+  color: #d5d3f2 !important;
 }
 
 a.text-light:hover, a.text-light:focus {
