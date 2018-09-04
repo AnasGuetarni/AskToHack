@@ -24,11 +24,8 @@ app.use(express.static(path.join(__dirname + "/public")));
 app.set('view engine', 'ejs');
 
 app.use(session({
-	secret: 'u9fdsS4d.#Zd8a/4J*',
-	name : 'sesSionId478',
-	cookie: { secure: false, httpOnly: true, expires: expiryDate },
-	resave: false,
-	saveUninitialized: true,
+	secret: 'Marc Vachon',
+	cookie: { maxAge: 6000 }
 }));
 
 console.log("\nLoading custom modules:".blue);
