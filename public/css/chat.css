@@ -1,0 +1,87 @@
+textarea{
+  width: 100%;
+  height: 100%;
+  resize: none;
+  background-color: #002830;
+  border-radius: 0px 0px 15px 15px;
+  color: #ffffff;
+  border: none;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-size: 18px;
+  -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.terminalBox{
+  height: 500px;
+  width: 900px;
+  background-color: #002830;
+  display: block;
+  margin: 0 auto;
+  margin-top: 80px;
+  position: relative;
+  border-radius: 5px 5px 10px 10px;
+}
+
+.terminalTab{
+  width: 100%;
+  background-color: #565656;
+  height: 30px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.circleX{
+  font-size: 18px;
+  font-family: "verdana";
+  width: 25px;
+  height: 25px;
+  background-color: #db4141;
+  color: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+  margin-top: 2px;
+  margin-left: 6px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.letterX{
+  display: block;
+  padding-top: 3.5px;
+}
+
+.terminalName{
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  top: 6px;
+}
+
+input[type="text"] {
+  background-color : #002830;
+  border-color: transparent;
+  outline: none;
+  color: white;
+}
+
+.form_terminal{
+  position: fixed;
+  top: 70%;
+  left: 24%;}
+
+.li_terminal {
+  list-style-type: none;
+}
+
+.ul_terminal {
+  width: 100%;
+  height: 85%;
+  overflow: scroll;
+}

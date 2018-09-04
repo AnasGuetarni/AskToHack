@@ -6,13 +6,21 @@
 <title>AskToHack</title>
 <meta name="description" content="A free and modern UI toolkit for web makers based on the popular Bootstrap 4 framework.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="../../img/logo.png" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
   crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../../css/shards.css">
 <link rel="stylesheet" href="../../css/shards-demo.css">
 
+<script src="../../js/socket.io.js"></script>
 <script src="../../js/jquery.js"></script>
 <script src="../../js/jquery-ui.js"></script>
 <script src="../../js/jquery.fileDownload.js"></script>
 <script src="../../js/Chart.min.js"></script>
+
+<script>
+
+  var socket = io.connect('http://localhost:5250');
+
+</script>
