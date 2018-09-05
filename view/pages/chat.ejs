@@ -87,7 +87,7 @@
 
   var sess = <%- JSON.stringify(sess) %>;
 
-  $(function () {
+  $(document).ready(function () {
     var socket = io();
     $('form').submit(function(){
       console.log('submit');

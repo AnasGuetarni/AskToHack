@@ -35,6 +35,9 @@ var router = require('./lib/router')(app);
 var dataAccess = require('./lib/dataAccess');
 var socket = require('./lib/socket')(http);
 var functions = require('./lib/functions');
+//var commands = require('./lib/commands');
+//var parser_ = require('./lib/parser');
+
 
 http.listen(global.PORT,function(){
     console.log(('\n' + "=== App Started on PORT " + global.PORT + " at " + dateNow + " ===" + '\n').green);
