@@ -1,0 +1,34 @@
+console.log('-> socket.js loaded'.yellow);
+
+var dataAccess = require('./dataAccess');
+<<<<<<< HEAD
+var parser = require('./parser');
+=======
+//var parser = require('./parser');
+>>>>>>> e6478943090077ff2e51b3afa52ddac8138ee67c
+
+var socketio = require('socket.io');
+var express = require('express');
+var childProcess = require('child_process');
+
+module.exports = function(http){
+
+  var io = require('socket.io')(http);
+
+  io.on('connection', function(socket){
+
+<<<<<<< HEAD
+    socket.on('req_chat_message', function(msg, username){
+      console.log(msg);
+      console.log(username);
+      let msg_ = parser.parser_message(msg);
+      io.emit('res_chat_message', msg, username);
+=======
+    socket.on('req_chat_message', function(msg){
+      //let msg_ = parser.parser_message(msg);
+      socket.emit('res_chat_message', msg);
+>>>>>>> e6478943090077ff2e51b3afa52ddac8138ee67c
+    });
+  });
+
+}
