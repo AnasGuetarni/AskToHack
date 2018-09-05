@@ -14,6 +14,8 @@ var path = require('path');
 let Parser = require('rss-parser');
 let parser = new Parser();
 
+//let ls = localstorage;
+
 var expiryDate = new Date(Date.now() + 60 * 60 * 1000 );
 var dateNow = new Date(Date.now());
 
@@ -35,6 +37,9 @@ var router = require('./lib/router')(app);
 var dataAccess = require('./lib/dataAccess');
 var socket = require('./lib/socket')(http);
 var functions = require('./lib/functions');
+//var commands = require('./lib/commands');
+var parser_ = require('./lib/parser');
+
 
 http.listen(global.PORT,function(){
     console.log(('\n' + "=== App Started on PORT " + global.PORT + " at " + dateNow + " ===" + '\n').green);

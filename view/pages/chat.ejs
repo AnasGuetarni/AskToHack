@@ -72,7 +72,7 @@
           </ul>
 
           <form action="" class="form_terminal">
-            ><input id="m" type="text" autocomplete="off" />
+            ><input id="m" type="text" autocomplete="off" autofocus/>
             <input type="submit" style="display:none;">
           </form>
 
@@ -85,19 +85,22 @@
 
 <script>
 
-  var sess = <%- JSON.stringify(sess) %>;
+  var socket = io.connect('http://192.168.43.91:5250');
 
-  $(function () {
-    var socket = io();
+  var sess = <%- JSON.stringify(session) %>;
+
+  $(document).ready(function () {
+    //var socket = io();
+
     $('form').submit(function(){
-      console.log('submit');
-      socket.emit('req_chat_message', $('#m').val());
+      socket.emit('req_chat_message', $('#m').val(), sess.username);
       $('#m').val('');
       return false;
     });
-    socket.on('res_chat_message', function(msg){
+
+    socket.on('res_chat_message', function(msg, username){
       if (msg == "clear") $('.li_terminal').remove();
-      else $('#messages').append($('<li class="li_terminal">').text(sess.username+ "> " + msg));
+      else $('#messages').append($('<li class="li_terminal">').text(username + "> " + msg));
     });
   });
 

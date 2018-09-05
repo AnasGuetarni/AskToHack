@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<%- include('./partials/head') -%>
+	<link rel="stylesheet" href="../../css/custom.css">
+</head>
+<body>
+	 <img src="img/logo.png" alt="Shard" class="shard signin"/>
+
+	 <div class="row mb-2 log">
+	 	<div class="col-12">
+	 		<h6 class="text-muted">Sign up</h6>
+	 		<form action='/signup' method="POST">
+	 				<div class="row">
+	 					<div class="form-group col-md-6 col-xs-12 col-sm-12 col-lg-6">
+	 						<div class="input-group input-group-seamless">
+	 							<span class="input-group-prepend">
+	 								<span class="input-group-text">
+	 									<i class="fa fa-user"></i>
+	 								</span>
+	 							</span>
+	 							<input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+	 						</div>
+	 					</div>
+	 				</div>
+
+	 				<div class="row">
+						<div class="form-group col-md-6 col-xs-12 col-sm-12 col-lg-6">
+							<div class="input-group input-group-seamless">
+								<input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+								<span class="input-group-append">
+									<span class="input-group-text">
+									  <i class="fa fa-lock"></i>
+									</span>
+								</span>
+							</div>
+						</div>
+	 				</div>
+
+					<div class="row">
+						<div class="form-group col-md-6 col-xs-12 col-sm-12 col-lg-6">
+							<div class="input-group input-group-seamless">
+								<input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="confirm password" required>
+								<span class="input-group-append">
+									<span class="input-group-text">
+										<i class="fa fa-lock"></i>
+									</span>
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-6 col-xs-12 col-sm-12 col-lg-6">
+							<div class="input-group input-group-seamless">
+								<input type="submit" class="form-control" id="submit" value="Sign up">
+							</div>
+						</div>
+					</div>
+
+
+	 		</form>
+	 	</div>
+	 </div>
+
+</body>
+
+<footer>
+	<%- include('./partials/footer') -%>
+</footer>
+</html>
