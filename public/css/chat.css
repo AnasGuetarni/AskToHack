@@ -85,3 +85,7 @@ input[type="text"] {
   height: 85%;
   overflow: scroll;
 }
+
+.server {
+  color: wheat;
+}
