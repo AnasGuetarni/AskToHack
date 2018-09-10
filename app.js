@@ -26,7 +26,7 @@ app.set('view engine', 'ejs');
 
 app.use(session({
 	secret: 'Marc Vachon',
-	cookie: { maxAge: 6000 }
+	cookie: { maxAge: 60000 }
 }));
 
 console.log("\nLoading custom modules:".blue);
