@@ -101,6 +101,10 @@
   var socket = io.connect('http://192.168.43.91:5250');
   var sess = <%- JSON.stringify(session) %>;
 
+  function logout(){
+  	document.location.href = "../../logout";
+  }
+
   $(document).ready(function () {
     $('form').submit(function(){
       socket.emit('req_chat_message', $('#m').val(), sess.username);
