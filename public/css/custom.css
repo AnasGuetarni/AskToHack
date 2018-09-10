@@ -3,12 +3,31 @@
   margin-top: 6%;
 }
 
+
 .log {
   margin-top: 30%;
   margin-left: 33%;
 }
 
-
 #submit{
 	background-color:#9c88ff;
+	color:white;
+}
+
+#submit:hover{
+	cursor: pointer;
+	background-color:#674eec;
+	transition:0.8s;
+}
+
+#newAccount_btn{
+	color:black;
+	background-color:#FFFFFF;
+	transition: 0.8s;
+}
+
+#newAccount_btn:hover{
+	cursor: pointer;
+	background-color:#c6bbff;
+	transition: 0.8s;
 }

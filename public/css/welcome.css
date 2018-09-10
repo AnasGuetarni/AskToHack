@@ -1,0 +1,15 @@
+
+
+#welcomeSignup_btn, #welcomeSignin_btn{
+	color:white;
+	background-color:#9c88ff;
+	transition: 0.8s;
+}
+
+
+#welcomeSignup_btn:hover, #welcomeSignin_btn:hover{
+
+	cursor: pointer;
+	background-color:#674eec;
+	transition: 0.8s;
+}

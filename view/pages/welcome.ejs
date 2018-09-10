@@ -2,6 +2,7 @@
 <html class="no-js" lang="en">
     <head>
       <%- include('./partials/head'); -%>
+      <link rel="stylesheet" href="../../css/welcome.css">
     </head>
 
     <body id="login">
@@ -17,8 +18,8 @@
           <h1 class="slide-in">AskToHack</h1>
           <p class="slide-in">A modern IA chatbox for ethical hackers.</p>
           <div class="action-links slide-in">
-            <a onclick="signup()" class="btn btn-primary btn-pill align-self-center mr-2">Sign up</a>
-            <a data-scroll-to="#introduction" id="scroll-to-content" class="btn btn-outline-light btn-pill align-self-center" onclick="signin()">Sign in</a>
+            <a onclick="signup()" id="welcomeSignup_btn" class="btn btn-pill align-self-center mr-2">Sign up</a>
+            <a onclick="signin()" id="welcomeSignin_btn" class="btn btn-pill align-self-center">Sign in</a>
           </div>
         </div>
       </div>

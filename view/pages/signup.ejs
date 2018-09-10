@@ -4,7 +4,16 @@
 	<%- include('./partials/head') -%>
 	<link rel="stylesheet" href="../../css/custom.css">
 </head>
+
 <body>
+	<div class="alert alert-danger alert-dismissible fade show" id="alertBox" style="display:none" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<i class="fa fa-exclamation-circle"></i>
+		<strong>Sign up failed !</strong> User already exist or Password and Password Confirmation are not same.
+	</div>
+
 	 <img src="img/logo.png" alt="Shard" class="shard signin"/>
 
 	 <div class="row mb-2 log">
@@ -69,3 +78,16 @@
 	<%- include('./partials/footer') -%>
 </footer>
 </html>
+
+
+<script>
+
+	let error = <%- JSON.stringify(error) %>;
+	$(document).ready(function () {
+
+		if(error === "true"){
+			$("#alertBox").attr("style","");
+		}
+  });
+
+</script>

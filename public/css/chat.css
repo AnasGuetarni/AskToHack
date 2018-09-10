@@ -68,6 +68,7 @@ input[type="text"] {
   background-color : #002830;
   border-color: transparent;
   outline: none;
+  width:90%;
   color: white;
 }
 
@@ -78,12 +79,15 @@ input[type="text"] {
 
 .li_terminal {
   list-style-type: none;
+  word-break: break-all;
+  color: wheat;
 }
 
 .ul_terminal {
   width: 100%;
   height: 85%;
   overflow: scroll;
+  overflow-x: hidden;
 }
 
 .server {
