@@ -49,6 +49,19 @@
                               Check if host is up
                             </td>
                           </tr>
+                          <tr>
+                            <td>Ifconfig</td>
+                            <td>
+                              Where are us ?
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Netstat</td>
+                            <td>
+                              Allows you to output network statistics
+                            </td>
+                          </tr>
+
                         </tbody>
                       </table>
                     </div>
@@ -89,8 +102,6 @@
   var sess = <%- JSON.stringify(session) %>;
 
   $(document).ready(function () {
-    //var socket = io();
-
     $('form').submit(function(){
       socket.emit('req_chat_message', $('#m').val(), sess.username);
       $('#m').val('');
@@ -102,8 +113,16 @@
       else $('#messages').append($('<li class="li_terminal">').text(username + "> " + msg));
     });
 
-    socket.on('res_chat_command', function(msg){
-      $('#messages').append($('<li class="li_terminal server">').text(msg.name + "> " + msg.state));
+    socket.on('res_chat_ping', function(msg_1){
+      $('#messages').append($('<li class="li_terminal server">').text(msg_1.name + "> " + msg_1.state));
+    });
+
+    socket.on('res_chat_ifconfig', function(msg_){
+      $('#messages').append($('<li class="li_terminal server">').text(msg_.name + "> " + msg_.address));
+    });
+
+    socket.on('res_chat_netstat', function(msg_){
+      $('#messages').append($('<li class="li_terminal server">').text(msg_.name + "> " + msg_));
     });
 
 
