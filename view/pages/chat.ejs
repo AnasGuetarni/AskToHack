@@ -112,6 +112,12 @@
       return false;
     });
 
+    socket.emit('req_chat_welcome', sess.username);
+
+    socket.on('res_chat_welcome', function(username){
+      $('#messages').append($('<li class="li_terminal">').text("> " + username + ' is connected !'));
+    });
+
     socket.on('res_chat_message', function(msg, username){
       if (msg == "clear") $('.li_terminal').remove();
       else $('#messages').append($('<li class="li_terminal">').text(username + "> " + msg));
