@@ -30,7 +30,6 @@ app.use(session({
 
 console.log("\nLoading custom modules:".blue);
 var db = require('./lib/db');
-var types = require('./lib/types/');
 var router = require('./lib/router')(app);
 var dataAccess = require('./lib/dataAccess');
 var socket = require('./lib/socket')(http);
