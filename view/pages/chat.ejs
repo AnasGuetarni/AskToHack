@@ -101,25 +101,27 @@
 
   var socket = io.connect('http://localhost:5250');
   var sess = <%- JSON.stringify(session) %>;
+  let room = <%- JSON.stringify(room) %>;
 
   function logout(){
   	document.location.href = "../../logout";
   }
 
   $(document).ready(function () {
+
+    socket.emit('join-channel', sess.username, room);
+
     $('form').submit(function(){
-      socket.emit('req_chat_message', $('#m').val(), sess.username);
+      socket.emit('sendMessage', sess.username,room,$('#m').val());
       $('#m').val('');
       return false;
     });
 
-    socket.emit('req_chat_welcome', sess.username);
-
-    socket.on('res_chat_welcome', function(username){
-      $('#messages').append($('<li class="li_terminal">').text("> " + username + ' is connected !'));
+    socket.on('welcome', function(username){
+      $('#messages').append($('<li class="li_terminal">').text("> " + username + ' is online !'));
     });
 
-    socket.on('res_chat_message', function(msg, username){
+    socket.on('newMessage', function(username, msg){
       if (msg == "clear") $('.li_terminal').remove();
       else $('#messages').append($('<li class="li_terminal">').text(username + "> " + msg));
     });
