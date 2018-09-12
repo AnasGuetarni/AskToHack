@@ -18,7 +18,7 @@
         </div>
 
         <div class="example col-md-12 ml-auto mr-auto">
-          <div class="row">
+          <div class="row" id="row">
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
               <div class="card">
                 <img class="card-img-top img_card" src="img/anony_disc.png" alt="Card image cap">
@@ -70,6 +70,25 @@
   function logout(){
   	document.location.href = "./logout";
   }
+
+  $(document).ready(function(){
+
+        let rooms = [{id: 1,name : "room1", desc: "chambre numero 1"},
+                     {id: 2,name : "room2", desc: "chambre numero 2"},
+                     {id: 3,name : "room3", desc: "chambre numero 3"},
+                     {id: 4,name : "room4", desc: "chambre numero 4"}];
+
+
+        for(i = 0; i<rooms.length; i++){
+          $('#row').append("<div id=\""+rooms[i].name+"\" class=\"col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden\">");
+          $('#'+rooms[i].name).append(" <div id=\"card_"+rooms[i].name+"\" class=\"card\">");
+          $('#card_'+rooms[i].name).append("<img class=\"card-img-top img_card\" src=\"img/hacker.jpg\" alt=\"Card image cap\">");
+          $('#card_'+rooms[i].name).append("<div id=\"card_body_"+rooms[i].name+"\" class=\"card-body card_tcenter\">");
+          $('#card_body_'+rooms[i].name).append("<h4 class=\"card-title\">"+rooms[i].name+"</h4>")
+                                      .append("<p class=\"card-text\">"+rooms[i].desc+"</p>")
+                                      .append("<a onclick=\"chat("+rooms[i].id+")\" class=\"btn btn-primary\">Connect</a>");
+        }
+  });
 
 </script>
 

@@ -93,3 +93,11 @@ input[type="text"] {
 .server {
   color: wheat;
 }
+
+.welcome_message{
+  color: #17C671;
+}
+
+.back_message{
+  color:#C4183C;
+}

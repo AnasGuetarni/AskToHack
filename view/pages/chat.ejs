@@ -105,11 +105,14 @@
   var sess = <%- JSON.stringify(session) %>;
   let room = <%- JSON.stringify(room) %>;
 
+
   function logout(){
   	document.location.href = "../../logout";
   }
 
   $(document).ready(function () {
+
+
 
     $('#backbutton').click(function(){
       socket.emit('back-home',sess.username ,room);
@@ -125,10 +128,10 @@
     });
 
     socket.on('welcome', function(username){
-      $('#messages').append($('<li class="li_terminal">').text("> " + username + ' is online !'));
+      $('#messages').append($('<li class="li_terminal welcome_message">').text("> " + username + ' is online !'));
     });
     socket.on('back-home-message', function(username){
-      $('#messages').append($('<li class="li_terminal">').text("> Good bye " + username));
+      $('#messages').append($('<li class="li_terminal back_message">').text("> " + username+ ' disconnected !'));
     });
 
     socket.on('newMessage', function(username, msg){
