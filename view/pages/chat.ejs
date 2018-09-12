@@ -12,6 +12,8 @@
 
       <div id="navbars">
         <%- include('./partials/navbar'); -%>
+
+          <button type="button" id="backbutton" class="btn btn-secondary">Back</button>
       </div>
 
       <div id="typography" class="container mb-5">
@@ -109,6 +111,11 @@
 
   $(document).ready(function () {
 
+    $('#backbutton').click(function(){
+      socket.emit('back-home',sess.username ,room);
+      document.location.href = "../home";
+    });
+
     socket.emit('join-channel', sess.username, room);
 
     $('form').submit(function(){
@@ -119,6 +126,9 @@
 
     socket.on('welcome', function(username){
       $('#messages').append($('<li class="li_terminal">').text("> " + username + ' is online !'));
+    });
+    socket.on('back-home-message', function(username){
+      $('#messages').append($('<li class="li_terminal">').text("> Good bye " + username));
     });
 
     socket.on('newMessage', function(username, msg){
