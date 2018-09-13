@@ -19,24 +19,20 @@
 
         <div class="example col-md-12 ml-auto mr-auto">
           <div class="row" id="row">
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-              <div class="card">
-                <img class="card-img-top img_card" src="img/anony_disc.png" alt="Card image cap">
-                <div class="card-body card_tcenter">
-                  <h4 class="card-title">Discover</h4>
-                  <p class="card-text">Discover with our IA the power of AskToHack chat !</p>
-                  <a onclick="chat(1)" class="btn btn-primary">Connect</a>
-                </div>
-              </div>
-            </div>
 
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
               <div class="card">
-                <img class="card-img-top img_card" src="img/hacker.jpg" alt="Card image cap">
                 <div class="card-body card_tcenter">
-                  <h4 class="card-title">Open discussion</h4>
-                  <p class="card-text">Discover what the others ethical hackers do on AskToHack !</p>
-                  <a onclick="chat(2)" class="btn btn-primary">Connect</a>
+                  <div class="form-group col-md-8">
+                    <h4 class="card-title">Create a chat</h4>
+                    <input type="text" name="roomName" id="roomName" placeholder="Room name">
+                    <input type="text" name="roomDesc" id="roomDesc" placeholder="Room description">
+                    <div class="row">
+                      <div class="col-md-2 offset-md-2">
+                          <button onclick="createRoom()" id="createRoomBtn" class="text-center">Create room</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -52,6 +48,28 @@
               </div>
             </div>
 
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="card">
+                <img class="card-img-top img_card" src="img/anony_disc.png" alt="Card image cap">
+                <div class="card-body card_tcenter">
+                  <h4 class="card-title">Default Chat 1</h4>
+                  <p class="card-text">Discover great community !</p>
+                  <a onclick="chat(1)" class="btn btn-primary">Connect</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
+              <div class="card">
+                <img class="card-img-top img_card" src="img/hacker.jpg" alt="Card image cap">
+                <div class="card-body card_tcenter">
+                  <h4 class="card-title">Default Chat 2</h4>
+                  <p class="card-text">Discover what the others ethical hackers do on AskToHack !</p>
+                  <a onclick="chat(2)" class="btn btn-primary">Connect</a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -62,9 +80,28 @@
 <script>
 
   var sess = <%- JSON.stringify(session) %>;
+  var rooms = <%- JSON.stringify(listRooms) %>;
+  var socket = io.connect('http://localhost:5250');
+
+  console.log(rooms);
+  socket.on('new_room', function(roomName, roomDesc){
+    console.log('[[client]] room '+roomName+" create with success");
+    $('#row').append("<div id=\""+roomName+"\" class=\"col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden\">");
+    $('#'+roomName).append(" <div id=\"card_"+roomName+"\" class=\"card\">");
+    $('#card_'+roomName).append("<img class=\"card-img-top img_card\" src=\"img/hacker.jpg\" alt=\"Card image cap\">");
+    $('#card_'+roomName).append("<div id=\"card_body_"+roomName+"\" class=\"card-body card_tcenter\">");
+    $('#card_body_'+roomName).append("<h4 class=\"card-title\">"+roomName+"</h4>")
+                                .append("<p class=\"card-text\">"+roomDesc+"</p>")
+                                .append("<a onclick=\"chat("+roomName+")\" class=\"btn btn-primary\">Connect</a>");
+
+  });
 
   function chat(i) {
-    document.location.href = './chat/' + i;
+    document.location.href = './chat/' + String(i);
+  }
+
+  function createRoom(){
+    socket.emit('create_room',$("#roomName").val(), $("#roomDesc").val());
   }
 
   function logout(){
@@ -73,20 +110,15 @@
 
   $(document).ready(function(){
 
-        let rooms = [{id: 1,name : "room1", desc: "chambre numero 1"},
-                     {id: 2,name : "room2", desc: "chambre numero 2"},
-                     {id: 3,name : "room3", desc: "chambre numero 3"},
-                     {id: 4,name : "room4", desc: "chambre numero 4"}];
-
-
         for(i = 0; i<rooms.length; i++){
+
           $('#row').append("<div id=\""+rooms[i].name+"\" class=\"col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden\">");
           $('#'+rooms[i].name).append(" <div id=\"card_"+rooms[i].name+"\" class=\"card\">");
           $('#card_'+rooms[i].name).append("<img class=\"card-img-top img_card\" src=\"img/hacker.jpg\" alt=\"Card image cap\">");
           $('#card_'+rooms[i].name).append("<div id=\"card_body_"+rooms[i].name+"\" class=\"card-body card_tcenter\">");
           $('#card_body_'+rooms[i].name).append("<h4 class=\"card-title\">"+rooms[i].name+"</h4>")
                                       .append("<p class=\"card-text\">"+rooms[i].desc+"</p>")
-                                      .append("<a onclick=\"chat("+rooms[i].id+")\" class=\"btn btn-primary\">Connect</a>");
+                                      .append("<a onclick=\"chat("+rooms[i].name+")\" class=\"btn btn-primary\">Connect</a>");
         }
   });
 
