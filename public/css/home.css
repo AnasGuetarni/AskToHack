@@ -14,3 +14,8 @@
 .bg-ligth {
   background-color: #d5d3f2!important;
 }
+
+
+.roomCard{
+  transition:1s;
+}

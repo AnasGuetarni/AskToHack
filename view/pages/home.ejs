@@ -13,42 +13,53 @@
       <!-- Cards -->
       <div id="cards" class="container mb-2 pt-4" style="padding-bottom: 1px">
         <div class="section-title col-lg-8 col-md-10 ml-auto mr-auto">
-          <h3 class="mb-4">Chats</h3>
-          <p>Choose an existing public chat or create yours !</p>
+          <h3 class="mb-4">Welcome in AskToHack home ! </h3>
+          <p>Choose an existing chat or create yours !</p>
         </div>
 
         <div class="example col-md-12 ml-auto mr-auto">
           <div class="row" id="row">
 
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden roomCard" id="formAddRoom" style="display:none">
               <div class="card">
                 <div class="card-body card_tcenter">
-                  <div class="form-group col-md-8">
-                    <h4 class="card-title">Create a chat</h4>
-                    <input type="text" name="roomName" id="roomName" placeholder="Room name">
-                    <input type="text" name="roomDesc" id="roomDesc" placeholder="Room description">
+                  <!-- <form> -->
                     <div class="row">
-                      <div class="col-md-2 offset-md-2">
-                          <button onclick="createRoom()" id="createRoomBtn" class="text-center">Create room</button>
+                      <h4 class="card-title col-md-12">Create a chat</h4>
+                      <div class="form-group col-md-12">
+                        <label for="form1-name" class="col-form-label">Room Number</label>
+                        <input type="number" class="col-md-12" name="roomName" id="roomName" placeholder="Room number">
                       </div>
                     </div>
-                  </div>
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <label for="form1-name" class="col-form-label">Room Description</label>
+                        <textarea id="roomDesc" class="col-md-12" name="roomDesk" placeholder="Room description"></textarea>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                          <button onclick="createRoom()" id="createRoomBtn" class="text-center btn btn-primary col-md-8" >Create room</button>
+                          <button onclick="closeForm()" id="closeFormBtn" class="text-center btn btn-secondary col-md-2" >X</button>
+                      </div>
+                    </div>
+                <!--  </form> -->
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden roomCard" id="cardAddRoom">
               <div class="card">
                 <img class="card-img-top img_card" src="img/add.png" alt="Card image cap">
                 <div class="card-body card_tcenter">
                   <h4 class="card-title">Create a chat</h4>
-                  <p class="card-text">Manage your own chat for your tests with AskToHack !</p>
-                  <a onclick="chat(3)" class="btn btn-primary">Create</a>
+                  <p class="card-text">Manage your own chat with AskToHack !</p>
+                  <a onclick="openForm()" class="btn btn-primary">Create</a>
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 roomCard">
               <div class="card">
                 <img class="card-img-top img_card" src="img/anony_disc.png" alt="Card image cap">
                 <div class="card-body card_tcenter">
@@ -59,12 +70,12 @@
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden roomCard">
               <div class="card">
                 <img class="card-img-top img_card" src="img/hacker.jpg" alt="Card image cap">
                 <div class="card-body card_tcenter">
                   <h4 class="card-title">Default Chat 2</h4>
-                  <p class="card-text">Discover what the others ethical hackers do on AskToHack !</p>
+                  <p class="card-text">Discover on AskToHack !</p>
                   <a onclick="chat(2)" class="btn btn-primary">Connect</a>
                 </div>
               </div>
@@ -83,19 +94,20 @@
   var rooms = <%- JSON.stringify(listRooms) %>;
   var socket = io.connect('http://localhost:5250');
 
-  console.log(rooms);
+  /* Créé la carte de la room chez tous les utilisateurs au moment ou un utilisateurs ajoute une room */
   socket.on('new_room', function(roomName, roomDesc){
     console.log('[[client]] room '+roomName+" create with success");
     $('#row').append("<div id=\""+roomName+"\" class=\"col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden\">");
     $('#'+roomName).append(" <div id=\"card_"+roomName+"\" class=\"card\">");
     $('#card_'+roomName).append("<img class=\"card-img-top img_card\" src=\"img/hacker.jpg\" alt=\"Card image cap\">");
     $('#card_'+roomName).append("<div id=\"card_body_"+roomName+"\" class=\"card-body card_tcenter\">");
-    $('#card_body_'+roomName).append("<h4 class=\"card-title\">"+roomName+"</h4>")
+    $('#card_body_'+roomName).append("<h4 class=\"card-title\">Room "+roomName+"</h4>")
                                 .append("<p class=\"card-text\">"+roomDesc+"</p>")
                                 .append("<a onclick=\"chat("+roomName+")\" class=\"btn btn-primary\">Connect</a>");
 
   });
 
+  /* ~~~~~~~~~~ Functions ~~~~~~~~~~~~~~ */
   function chat(i) {
     document.location.href = './chat/' + String(i);
   }
@@ -108,15 +120,27 @@
   	document.location.href = "./logout";
   }
 
+  function closeForm(){
+    $('#formAddRoom').attr('style','display:none');
+    $('#cardAddRoom').attr('style','display:');
+  }
+
+  function openForm(){
+    $('#cardAddRoom').attr('style','display:none');
+    $('#formAddRoom').attr('style','display:');
+  }
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
   $(document).ready(function(){
 
+
+      /* initialise toutes les rooms presentes dans la base de donnée */
         for(i = 0; i<rooms.length; i++){
 
           $('#row').append("<div id=\""+rooms[i].name+"\" class=\"col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden\">");
           $('#'+rooms[i].name).append(" <div id=\"card_"+rooms[i].name+"\" class=\"card\">");
           $('#card_'+rooms[i].name).append("<img class=\"card-img-top img_card\" src=\"img/hacker.jpg\" alt=\"Card image cap\">");
           $('#card_'+rooms[i].name).append("<div id=\"card_body_"+rooms[i].name+"\" class=\"card-body card_tcenter\">");
-          $('#card_body_'+rooms[i].name).append("<h4 class=\"card-title\">"+rooms[i].name+"</h4>")
+          $('#card_body_'+rooms[i].name).append("<h4 class=\"card-title\">Room "+rooms[i].name+"</h4>")
                                       .append("<p class=\"card-text\">"+rooms[i].desc+"</p>")
                                       .append("<a onclick=\"chat("+rooms[i].name+")\" class=\"btn btn-primary\">Connect</a>");
         }

@@ -12,8 +12,6 @@
 
       <div id="navbars">
         <%- include('./partials/navbar'); -%>
-
-          <button type="button" id="backbutton" class="btn btn-secondary">Back</button>
       </div>
 
       <div id="typography" class="container mb-5">
@@ -112,7 +110,7 @@
 
   $(document).ready(function () {
 
-
+    $('#nav').append("<button type=\"button\" id=\"backbutton\" class=\"btn btn-secondary\">Back to menu</button>");
 
     $('#backbutton').click(function(){
       socket.emit('back-home',sess.username ,room);
