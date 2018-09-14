@@ -128,6 +128,11 @@
     socket.on('welcome', function(username){
       $('#messages').append($('<li class="li_terminal welcome_message">').text("> " + username + ' is online !'));
     });
+
+    socket.on('back_home', function(){
+      document.location.href='../home';
+    });
+
     socket.on('back-home-message', function(username){
       $('#messages').append($('<li class="li_terminal back_message">').text("> " + username+ ' disconnected !'));
     });

@@ -96,7 +96,6 @@
 
   /* Créé la carte de la room chez tous les utilisateurs au moment ou un utilisateurs ajoute une room */
   socket.on('new_room', function(roomName, roomDesc){
-    console.log('[[client]] room '+roomName+" create with success");
     $('#row').append("<div id=\""+roomName+"\" class=\"col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden\">");
     $('#'+roomName).append(" <div id=\"card_"+roomName+"\" class=\"card\">");
     $('#card_'+roomName).append("<img class=\"card-img-top img_card\" src=\"img/hacker.jpg\" alt=\"Card image cap\">");
@@ -110,7 +109,6 @@
   });
 
   socket.on('room_deleted', function(roomName){
-    console.log('pouuuuuuuuuuuuuuuuuurquoi');
     $('#'+roomName).remove();
   });
 
