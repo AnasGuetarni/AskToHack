@@ -92,7 +92,7 @@
 
   var sess = <%- JSON.stringify(session) %>;
   var rooms = <%- JSON.stringify(listRooms) %>;
-  var socket = io.connect('http://localhost:5250');
+  var socket = io.connect('http://172.20.2.79:5250');
 
   /* Créé la carte de la room chez tous les utilisateurs au moment ou un utilisateurs ajoute une room */
   socket.on('new_room', function(roomName, roomDesc){
@@ -102,9 +102,16 @@
     $('#card_'+roomName).append("<img class=\"card-img-top img_card\" src=\"img/hacker.jpg\" alt=\"Card image cap\">");
     $('#card_'+roomName).append("<div id=\"card_body_"+roomName+"\" class=\"card-body card_tcenter\">");
     $('#card_body_'+roomName).append("<h4 class=\"card-title\">Room "+roomName+"</h4>")
-                                .append("<p class=\"card-text\">"+roomDesc+"</p>")
-                                .append("<a onclick=\"chat("+roomName+")\" class=\"btn btn-primary\">Connect</a>");
+                              .append("<p class=\"card-text\">"+roomDesc+"</p>")
+                                .append("<button onclick=\"chat("+roomName+")\" class=\"btn btn-primary\">Connect</button>")
+                                .append("<button class=\"btn btn-secondary\" onclick=\"deleteRoom("+roomName+")\">Delete</button>");
 
+
+  });
+
+  socket.on('room_deleted', function(roomName){
+    console.log('pouuuuuuuuuuuuuuuuuurquoi');
+    $('#'+roomName).remove();
   });
 
   /* ~~~~~~~~~~ Functions ~~~~~~~~~~~~~~ */
@@ -114,6 +121,12 @@
 
   function createRoom(){
     socket.emit('create_room',$("#roomName").val(), $("#roomDesc").val());
+    $('#formAddRoom').attr('style','display:none');
+    $('#cardAddRoom').attr('style','display:');
+  }
+
+  function deleteRoom(roomName){
+    socket.emit('delete_room', roomName);
   }
 
   function logout(){
@@ -141,8 +154,9 @@
           $('#card_'+rooms[i].name).append("<img class=\"card-img-top img_card\" src=\"img/hacker.jpg\" alt=\"Card image cap\">");
           $('#card_'+rooms[i].name).append("<div id=\"card_body_"+rooms[i].name+"\" class=\"card-body card_tcenter\">");
           $('#card_body_'+rooms[i].name).append("<h4 class=\"card-title\">Room "+rooms[i].name+"</h4>")
-                                      .append("<p class=\"card-text\">"+rooms[i].desc+"</p>")
-                                      .append("<a onclick=\"chat("+rooms[i].name+")\" class=\"btn btn-primary\">Connect</a>");
+                                        .append("<p class=\"card-text\">"+rooms[i].desc+"</p>")
+                                      .append("<a onclick=\"chat("+rooms[i].name+")\" class=\"btn btn-primary\">Connect</a>")
+                                      .append("<button class=\"btn btn-secondary\" onclick=\"deleteRoom("+rooms[i].name+")\">Delete</button>");
         }
   });
 
