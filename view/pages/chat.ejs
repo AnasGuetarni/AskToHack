@@ -42,27 +42,7 @@
                             <th>Description</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>Ping</td>
-                            <td>
-                              Check if host is up
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Ifconfig</td>
-                            <td>
-                              Where are us ?
-                            </td>
-                          </tr>
-                          <!--
-                          <tr>
-                            <td>Netstat</td>
-                            <td>
-                              Allows you to output network statistics
-                            </td>
-                          </tr>
-                        -->
+                        <tbody id="commandList">
                         </tbody>
                       </table>
                     </div>
@@ -103,6 +83,16 @@
   var sess = <%- JSON.stringify(session) %>;
   let room = <%- JSON.stringify(room) %>;
 
+  let commandes=[{name:"help", desc:"List all asktohack command"},
+                  {name:"ping", desc:"Check if host is up"},
+                  {name:"ifconfig", desc:"ipv4 address of server"},
+                  {name:"exploit", desc:"return latest exploit fault"},
+                  {name:"shellcode", desc:"return latest shellcode fault"}
+                ];
+  for(i in commandes){
+$('#commandList').append("<tr id=commande_"+commandes[i].name+"></tr>");
+$("#commande_"+commandes[i].name).append("<td>"+commandes[i].name+"</td><td>"+commandes[i].desc+"</td>");
+}
 
   function logout(){
   	document.location.href = "../../logout";
